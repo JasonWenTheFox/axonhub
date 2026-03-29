@@ -72,7 +72,7 @@ func (p *Provider) ChatStream(ctx context.Context, model string, tools []agent.T
 
 				providerErr := &agent.ProviderError{}
 				if errors.As(err, &providerErr) {
-					if providerErr.IsClientError() || providerErr.StatusCode < 500 {
+					if !providerErr.IsRetryable() {
 						emitError(events, err)
 						return
 					}

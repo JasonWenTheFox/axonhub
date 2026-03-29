@@ -12,8 +12,6 @@ import (
 	"github.com/looplj/axonhub/axon/bus"
 
 	axoncontext "github.com/looplj/axonhub/axon/context"
-
-	"github.com/looplj/axonhub/cmd/axonclaw/conf"
 )
 
 func AppendArchiveMessage(ctx context.Context, workspace string, msg agent.Message) error {
@@ -24,7 +22,6 @@ func AppendArchiveMessage(ctx context.Context, workspace string, msg agent.Messa
 
 	path := filepath.Join(
 		workspace,
-		conf.DefaultDir,
 		"messages",
 		"archives",
 		fmt.Sprintf("%s_%s.md", time.Now().Format("2006-01-02"), sanitizeArchiveThreadID(threadID)),
@@ -65,4 +62,3 @@ func sanitizeArchiveThreadID(threadID string) string {
 
 	return cleaned
 }
-

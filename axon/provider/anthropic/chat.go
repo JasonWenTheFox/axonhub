@@ -64,7 +64,7 @@ func (p *Provider) Chat(ctx context.Context, model string, tools []agent.ToolDef
 
 		providerErr := &agent.ProviderError{}
 		if errors.As(lastErr, &providerErr) {
-			if providerErr.IsClientError() || providerErr.StatusCode < 500 {
+			if !providerErr.IsRetryable() {
 				break
 			}
 		}

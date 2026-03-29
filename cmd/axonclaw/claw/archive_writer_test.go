@@ -14,9 +14,8 @@ import (
 )
 
 func TestAppendArchiveMessage_AppendsToDailyThreadFile(t *testing.T) {
-	t.Parallel()
-
 	workspace := t.TempDir()
+	t.Setenv("HOME", t.TempDir())
 	ctx := bus.ContextWithMetadata(context.Background(), bus.Metadata{ThreadID: "th/test:1"})
 
 	require.NoError(t, AppendArchiveMessage(ctx, workspace, agent.Message{
@@ -28,7 +27,7 @@ func TestAppendArchiveMessage_AppendsToDailyThreadFile(t *testing.T) {
 		Content: &agent.Content{Text: new("world")},
 	}))
 
-	archiveDir := filepath.Join(workspace, ".axonclaw", "messages", "archives")
+	archiveDir := filepath.Join(workspace, "messages", "archives")
 	entries, err := os.ReadDir(archiveDir)
 	require.NoError(t, err)
 	require.Len(t, entries, 1)
