@@ -2,7 +2,7 @@ import { useCallback, useState } from 'react';
 import { format } from 'date-fns';
 import { ColumnDef, Row, Table } from '@tanstack/react-table';
 import { IconCheck, IconX, IconLink, IconChevronDown, IconChevronRight } from '@tabler/icons-react';
-import * as Icons from '@lobehub/icons';
+import * as Icons from '@axonhub/lobe-icons';
 import { useTranslation } from 'react-i18next';
 import { usePermissions } from '@/hooks/usePermissions';
 import { Badge } from '@/components/ui/badge';

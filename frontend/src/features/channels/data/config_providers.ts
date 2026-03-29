@@ -27,7 +27,7 @@ import {
   Claude,
   XiaomiMiMo,
   Fireworks
-} from '@lobehub/icons';
+} from '@axonhub/lobe-icons';
 import { NanoGPTIcon } from '../components/nanogpt-icon';
 import { CHANNEL_CONFIGS } from './config_channels';
 import { ApiFormat, ChannelType } from './schema';

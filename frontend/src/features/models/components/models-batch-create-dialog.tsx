@@ -1,6 +1,6 @@
 import { useEffect, useState, useMemo, useCallback } from 'react';
 import { IconPlus, IconTrash } from '@tabler/icons-react';
-import { toc } from '@lobehub/icons';
+import { toc } from '@axonhub/lobe-icons';
 import { useTranslation } from 'react-i18next';
 import { toast } from 'sonner';
 import { Button } from '@/components/ui/button';
